@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "917877320917",
+    "project_id": "majorproject-f4ca1",
+    "storage_bucket": "majorproject-f4ca1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917877320917:android:5793b4c678ec55fdf9c65c",
+        "android_client_info": {
+          "package_name": "com.example.homease1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6LatBhdfEmYF8BUOSMRV43RSyz0LcA4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
