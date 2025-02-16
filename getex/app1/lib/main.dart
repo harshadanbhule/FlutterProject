@@ -37,5 +37,5 @@ Peogram 2 & Program3 : Gtex Navigation,routes and data movement from one screen 
 Program 4 : getex height and width ,mediaquery
 GETEX EXAMPLE 1: counter.dart & CounterScreen.dart  counter using getx
 Gtex example 2 : Opacity increse decrese using getx
-getx example 3 : used list to contain favourite fruit when click on favourite icon using getx we add in list and fetch
+getx example 3 : used list to contain favourite fruit when click on favourite icon using getx we add in list and fetch.
 */
