@@ -6,6 +6,7 @@ import 'package:app1/getex%20example%201/CounterScreen.dart';
 import 'package:app1/getex%20example%201/counter.dart';
 import 'package:app1/getx%20example%202/Screen.dart';
 import 'package:app1/getx%20example%203/screen3.dart';
+import 'package:app1/getx%20imagepicker/ImageScreen.dart';
 import 'package:app1/program2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -21,7 +22,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home:const Screen3(),
+      home:const ImageScreen(),
       debugShowCheckedModeBanner: false,
       getPages:[
           GetPage(name:'/Page1',page:()=>const Program2()),
@@ -38,4 +39,5 @@ Program 4 : getex height and width ,mediaquery
 GETEX EXAMPLE 1: counter.dart & CounterScreen.dart  counter using getx
 Gtex example 2 : Opacity increse decrese using getx
 getx example 3 : used list to contain favourite fruit when click on favourite icon using getx we add in list and fetch
+getx imagePicker : it use for pick image from gallary and display it on mobile screen
 */

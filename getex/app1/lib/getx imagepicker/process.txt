@@ -1,0 +1,22 @@
+- first add dependecy for pick image from galllary
+    flutter pub add image_picker
+
+- for get permmision from user to add image from gallary  add below line in given path
+
+    Android permissions:   
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+
+    path for android : D:\Flutter\getex\app1\android\app\src\main\AndroidManifest.xml
+
+    ios permissions: 
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>$(PRODUCT_NAME)photos description.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>$(PRODUCT_NAME) would like to access camera!.</string>
+
+    path for ios : D:\Flutter\getex\app1\ios\Runner\Info.plist
+
+    path : D:\Flutter\getex\app1\android\app\src\main\AndroidManifest.xml
+
