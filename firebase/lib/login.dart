@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -32,26 +33,47 @@ class LoginPage extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () async {
-                String mail = emailController.text.trim();
-                String pass = passwordController.text.trim();
+  String mail = emailController.text.trim();
+  String pass = passwordController.text.trim();
 
-                if (mail.isEmpty || pass.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("Enter all the fields")),
-                  );
-                } else {
-                  try{
-                    await FirebaseAuth.instance.signInWithEmailAndPassword(email: mail, password: pass).then((value){
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Login successfully")));
-                      Navigator.pushReplacementNamed(context, '/form');
-                    });
-                  }catch(err){
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Error: ${err.toString()}")),
-                    );
-                  }
-                }
-              },
+  if (mail.isEmpty || pass.isEmpty) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text("Enter all the fields")),
+    );
+  } else {
+    try {
+      final UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: mail, password: pass);
+
+      final String uid = userCredential.user!.uid;
+
+      // Check Firestore for location data
+      final docSnapshot = await FirebaseFirestore.instance
+          .collection('user_locations')
+          .doc(uid)
+          .get();
+
+      if (docSnapshot.exists) {
+        // Data already exists, go to Home page
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Login successful. Redirecting to Home.")),
+        );
+        Navigator.pushReplacementNamed(context, '/home');
+      } else {
+        // No data yet, go to form page
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Login successful. Please complete your location form.")),
+        );
+        Navigator.pushReplacementNamed(context, '/form');
+      }
+    } catch (err) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Error: ${err.toString()}")),
+      );
+    }
+  }
+},
+
               child: const Text("Login"),
             ),
             ElevatedButton(
